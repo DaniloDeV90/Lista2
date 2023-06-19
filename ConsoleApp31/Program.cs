@@ -122,7 +122,9 @@ namespace lista3
                         Console.WriteLine(lista3Classes.escolha_de_numeros_inteiros());
 
                         break;
-
+                    case 24:
+                        Console.WriteLine("asd");
+                        break;
                 }
             } while (opcao != -1);
         }
