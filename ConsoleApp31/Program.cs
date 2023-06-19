@@ -134,7 +134,7 @@ namespace lista3
                         lista3Classes.fatorial();
 
                         break;
-                        break;
+                        
                     case 27:
                         lista3Classes.impard100A200();
 
