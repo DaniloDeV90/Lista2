@@ -1,4 +1,4 @@
-﻿using Classes;
+using Classes;
 namespace lista3
 
 {
@@ -123,8 +123,49 @@ namespace lista3
 
                         break;
                     case 24:
-                        Console.WriteLine("asd");
+                        Console.WriteLine(lista3Classes.Peso_Ideal());
+
                         break;
+                    case 25:
+                        Console.WriteLine(lista3Classes.ordem_descrescente());
+
+                        break;
+                    case 26:
+                        lista3Classes.fatorial();
+
+                        break;
+                        break;
+                    case 27:
+                        lista3Classes.impard100A200();
+
+                        break;
+                    case 28:
+                        lista3Classes.numero0ate2000();
+
+                        break;
+
+                    case 29:
+                        lista3Classes.tabuadaDasboa();
+
+                        break;
+                    case 30:
+                        Console.WriteLine (lista3Classes.numerosPositivos());
+
+                        break;
+                    case 31:
+                        Console.WriteLine(lista3Classes._20aoquadrado ());
+
+                        break;
+                        
+                    case 32:
+                        Console.WriteLine(lista3Classes.aluninhos());
+
+                        break;
+                    case 33:
+                        Console.WriteLine(lista3Classes.menorNumero());
+
+                        break;
+
                 }
             } while (opcao != -1);
         }
