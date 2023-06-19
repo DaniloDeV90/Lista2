@@ -1,7 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Globalization;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Classes
 {
@@ -495,7 +496,7 @@ namespace Classes
             {
 
                 Console.WriteLine("Digite um número: ");
-                    parar = int.Parse(Console.ReadLine());
+                parar = int.Parse(Console.ReadLine());
 
 
                 if (parar >= 0) resultado = "positivo";
@@ -504,7 +505,7 @@ namespace Classes
             } while (parar != -1);
         }
 
-        public string armazenamento ()
+        public string armazenamento()
         {
 
 
@@ -520,23 +521,25 @@ namespace Classes
                 Console.WriteLine("Digite um número");
                 stop = int.Parse(Console.ReadLine());
 
-      
 
-       
-                if (stop >= 0) {
+
+
+                if (stop >= 0)
+                {
 
                     A.Add(stop);
                 };
 
 
 
-                if (stop < 0) {
+                if (stop < 0)
+                {
                     B.Add(stop);
                 };
 
 
 
-                 
+
 
             } while (stop != -1);
 
@@ -552,14 +555,14 @@ namespace Classes
 
             }
 
-            return "Números positivos: " + Positivos + "\n" + 
+            return "Números positivos: " + Positivos + "\n" +
             "Números Negativos: " + Negativos + "\n";
         }
         public string operacoes()
         {
 
             Console.WriteLine("Digite  1 para Adição, 2 para Subtração, 3 para Multiplicação, 4 para Divisisão");
-            int operacao = int.Parse (Console.ReadLine());
+            int operacao = int.Parse(Console.ReadLine());
 
             if (operacao < 1 || operacao > 3) return "erro";
             Console.WriteLine("Valor 1");
@@ -572,35 +575,35 @@ namespace Classes
             switch (operacao)
             {
                 case 1:
-  
+
 
                     resultado = valor1 + valor2;
                     break;
 
                 case 2:
-                   resultado =  valor1 - valor2;
+                    resultado = valor1 - valor2;
                     break;
 
                 case 3:
-                    resultado =  valor1 * valor2;
+                    resultado = valor1 * valor2;
                     break;
                 case 4:
 
-             
-                    resultado =  valor1 / valor2;
+
+                    resultado = valor1 / valor2;
                     break;
             }
             return "resultado: " + resultado;
         }
 
 
-      public string escolha_de_numeros_inteiros()
+        public string escolha_de_numeros_inteiros()
         {
             Console.WriteLine("Digite um número");
-            int numero1 = int.Parse (Console.ReadLine());
+            int numero1 = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Digite outro número");
-            int numero2 = int.Parse (Console.ReadLine());
+            int numero2 = int.Parse(Console.ReadLine());
 
             int Valor = 0;
             do
@@ -608,12 +611,12 @@ namespace Classes
 
                 Console.WriteLine("Digite 1 para Verificar se um dos números lidos é ou não multiplo do outro" + "\n" +
                 "Digite 2 para Verificar se os dois números lidos são pares" + "\n" +
-                "Digite 3 para Verificar se  a média dos dois números é igual ou maior que 7" + "\n"+
-                "Digite 4 para parar"); 
-            Valor = int.Parse (Console.ReadLine());
+                "Digite 3 para Verificar se  a média dos dois números é igual ou maior que 7" + "\n" +
+                "Digite 4 para parar");
+                Valor = int.Parse(Console.ReadLine());
 
 
-            
+
                 switch (Valor)
                 {
                     case 1:
@@ -632,9 +635,9 @@ namespace Classes
                         }
                         if (ao)
                         {
-                           Console.WriteLine ( numero2 + " é multiplo de: " + numero1);
+                            Console.WriteLine(numero2 + " é multiplo de: " + numero1);
                         }
-                        if (!ao) Console.WriteLine ( numero2 + " não é multiplo de: " + numero1);
+                        if (!ao) Console.WriteLine(numero2 + " não é multiplo de: " + numero1);
                         break;
                     case 2:
                         string valor1 = "";
@@ -657,17 +660,294 @@ namespace Classes
                         if (media < 7) Console.WriteLine("A média é: " + media + " e não é maior ou igual a 7");
                         break;
                 }
-                
+
             } while (Valor != 4);
             return "";
+
+        }
+
+        public string Peso_Ideal()
+        {
+
+
+            Console.WriteLine("Digite a sua altura: ");
+            decimal altura = decimal.Parse(Console.ReadLine());
+
+
+            Console.WriteLine("SEXO \n" + "Digite M para Masculino ou F para feminino");
+            string sexo = Console.ReadLine().ToUpper();
+            decimal resultado = 0;
+            switch (sexo)
+            {
+                case "M":
+                    resultado = (72.7m * altura) - 58m;
+                    break;
+
+                case "F":
+                    resultado = (62.1m * altura) - 44.7m;
+                    break;
+
+                default:
+                    return "Valor inválido";
+
+
+            }
+
+            return "o seu peso ideal é: " + resultado + "KG";
+
+        }
+
+        public string ordem_descrescente()
+        {
+            int[] arr = new int[101];
+
+            for (int i = 0; i <= 100; i++)
+            {
+                arr[i] = i;
+            }
+
+            Array.Reverse(arr);
+
+            string resultado = "";
+
+            foreach (int i in arr)
+            {
+                resultado += i + " ";
+
+            }
+            return resultado;
+
+        }
+        public void fatorial()
+        {
+            Console.Write("Digite a quantidade de números a serem processados: ");
+            int quantidade = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= quantidade; i++)
+            {
+                Console.Write($"Digite o número {i}: ");
+                int numero = int.Parse(Console.ReadLine());
+
+                long fatorial = CalcularFatorial(numero);
+
+                Console.WriteLine($"O fatorial de {numero} é: {fatorial}\n");
+            }
+        }
+
+        static long CalcularFatorial(int numero)
+        {
+            long fatorial = 1;
+
+            for (int i = 1; i <= numero; i++)
+            {
+                fatorial *= i;
+            }
+
+            return fatorial;
+        }
+        public string impard100A200()
+        {
+            string resultado = "";
+            for (int i = 100; i <= 200; i++)
+            {
+                if (i % 2 == 1) { resultado += i + " "; }
+
+            }
+            Console.WriteLine(resultado);
+            return resultado;
+        }
+
+        public string numero0ate2000()
+        {
+            string resultado = "";
+            for (int i = 0; i <= 2000; i++)
+            {
+                resultado += i + " ";
+
+            }
+            Console.WriteLine(resultado);
+            return resultado;
+        }
+
+        public string tabuadaDasboa()
+        {
+            Console.WriteLine("Digite um numero: ");
+            int numero = int.Parse(Console.ReadLine());
+
+            string resultado = "";
+            for (int i = 1; i <= 10; i++)
+            {
+                resultado += numero + " " + "X " + i + "= " + numero * i + "\n";
+
+            }
+            Console.WriteLine(resultado);
+            return resultado;
         }
 
 
+        public string numerosPositivos()
+        {
+            int opcao = 0;
 
+            ArrayList arr = new ArrayList();
+            do
+            {
+                Console.WriteLine("Digite numeros positivos ou qualquer numero negativo para encerrar");
+
+                opcao = int.Parse(Console.ReadLine());
+
+                if (opcao > 0) arr.Add(opcao);
+
+
+            } while (opcao > 0);
+
+            int pares = 0;
+            int impares = 0;
+            foreach (int a in arr)
+            {
+
+                if (a % 2 == 0)
+                {
+                    Console.WriteLine(a + "é par" + "\n");
+                    pares += a;
+
+                }
+                if (a % 2 == 1)
+                {
+                    Console.WriteLine(a + "é impar" + "\n");
+                    impares += a;
+
+                }
+
+            }
+
+
+            return $"Soma dos numeros impares: {impares} \n Soma dos numeros pares:   {pares}";
+
+        }
+        public string _20aoquadrado()
+        {
+
+            Console.Write("Digite um número menor que 10 e maior que zero: ");
+            int numero = int.Parse(Console.ReadLine());
+
+            if (numero > 0 && numero < 10)
+            {
+                int contador = 0;
+                int somaQuadrados = 0;
+                int numeroAtual = numero;
+
+                while (contador < 20)
+                {
+
+
+                    if (numeroAtual % 2 != 0)
+                    {
+                        somaQuadrados += numeroAtual * numeroAtual;
+                        contador++;
+                    }
+
+                    numeroAtual++;
+                }
+
+                Console.WriteLine("A soma dos quadrados dos 20 primeiros números ímpares é: " + somaQuadrados);
+            }
+            else
+            {
+                Console.WriteLine("O número informado não está dentro do intervalo válido.");
+            }
+
+            Console.ReadLine();
+            return "";
+
+        }
+
+        class Alunos
+        {
+            public string Nome;
+            public int Matricula;
+            public int Nota;
+            public int Media;
+            public string status;
+        }
+        public string aluninhos()
+        {
+
+         Alunos alunos = new Alunos();
+            ArrayList Alunor = new ArrayList();
+
+            string stop = "";
+            do
+            {
+                Console.WriteLine("Digite o nome do aluno: ");
+                alunos.Nome = Console.ReadLine();
+                Console.WriteLine("Digite a Matricula");
+                alunos.Matricula = int.Parse (Console.ReadLine());
+
+                Console.WriteLine("Digite a nota; ");
+                    alunos.Nota = int.Parse (Console.ReadLine ());
+
+                alunos.Media = 60;
+                if (alunos.Nota >= alunos.Media) alunos.status = "Aprovado";
+                if (alunos.Nota  < alunos.Media) alunos.status = "Reprovado";
+                Alunor.Add(alunos);
+                Console.WriteLine("Deseja finalizar? S/N");
+                stop = Console.ReadLine().ToUpper ();
+
+
+            } while (stop != "S");
+            int MatriculaNumero = 0;
+            do
+            {
+
+
+                Console.WriteLine("Digite o numero da matricula do Aluno ou -1 para finalizar ");
+                 MatriculaNumero = int.Parse(Console.ReadLine());
+                foreach (Alunos alunoss in Alunor)
+                {
+
+                    if (alunoss.Matricula.Equals(MatriculaNumero))
+                    {
+                        return ("Numero da Matricula: " + alunoss.Matricula + "\n" +
+                       "Nome: " + alunoss.Nome + "\n" +
+                       "Nota: " + alunoss.Nota + "\n" +
+                       "Média da prova: " + alunoss.Media + "\n" +
+                       "Status: " + alunoss.status);
+                    }
+                }
+            } while(MatriculaNumero != -1);
+            return "";
+        }
+
+        public string  menorNumero ()
+        {
+            ArrayList numeros = new ArrayList();
+            int stop = 0;
+            do
+            {
+                Console.WriteLine("Digite um numero inteiro Positivo ou -1 para finalizar");
+                stop = int.Parse(Console.ReadLine());
+
+                if (stop >= 0) numeros.Add(stop);
+                  
+            } while (stop != -1);
+
+            
+
+          int[] NovoArr =  (int[])numeros.ToArray(typeof(int));
+  
+            Array.Sort(NovoArr);    
+            
+            
+            return $"O maior numero é:  {NovoArr[NovoArr.Length -1]}  \n O menor numero é: {NovoArr[0]} ";
+        } 
     }
-
-
 }
+
+
+
+
+
 
 
 
