@@ -189,7 +189,7 @@ namespace lista3
                         Console.WriteLine(lista3Classes.poluicao());
 
                         break;
-                          case 40:
+                    case 40:
                         Console.WriteLine(lista3Classes.nadador());
 
                         break;
@@ -205,6 +205,7 @@ namespace lista3
                         Console.WriteLine(lista3Classes.altura_graus());
 
                         break;
+
                 }
             } while (opcao != -1);
         }
