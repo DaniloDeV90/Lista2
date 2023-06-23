@@ -189,7 +189,22 @@ namespace lista3
                         Console.WriteLine(lista3Classes.poluicao());
 
                         break;
+                          case 40:
+                        Console.WriteLine(lista3Classes.nadador());
 
+                        break;
+                    case 41:
+                        Console.WriteLine(lista3Classes.maximovalor());
+
+                        break;
+                    case 42:
+                        Console.WriteLine(lista3Classes.graos());
+
+                        break;
+                    case 43:
+                        Console.WriteLine(lista3Classes.altura_graus());
+
+                        break;
                 }
             } while (opcao != -1);
         }
