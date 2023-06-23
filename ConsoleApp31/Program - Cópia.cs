@@ -953,7 +953,8 @@ namespace Classes
             }
             for (int i = 1; i <= 100; i++)
             {
-                if (multiplosde10.Contains(i)) {
+                if (multiplosde10.Contains(i))
+                {
                     Console.WriteLine(i + " é multiplo de 10");
                 }
             }
@@ -1142,7 +1143,7 @@ namespace Classes
             return "";
         }
 
-        public string poluicao ()
+        public string poluicao()
         {
             string encerrarPrograma = "N";
 
@@ -1174,6 +1175,171 @@ namespace Classes
             }
             return "";
         }
-    }
+        public string nadador()
+        {
+            Console.Write("Digite a idade do nadador: ");
+            int idade = Convert.ToInt32(Console.ReadLine());
 
+            if (idade >= 5 && idade <= 7)
+            {
+                Console.WriteLine("Categoria: Infantil A");
+            }
+            else if (idade >= 8 && idade <= 11)
+            {
+                Console.WriteLine("Categoria: Infantil B");
+            }
+            else if (idade >= 12 && idade <= 13)
+            {
+                Console.WriteLine("Categoria: Juvenil A");
+            }
+            else if (idade >= 14 && idade <= 17)
+            {
+                Console.WriteLine("Categoria: Juvenil B");
+            }
+            else if (idade >= 18)
+            {
+                Console.WriteLine("Categoria: Adultos");
+            }
+            else
+            {
+                Console.WriteLine("Idade inválida para a classificação.");
+            }
+            return "";
+        }
+        public string maximovalor()
+        {
+            int maior = int.MinValue;
+            int menor = int.MaxValue;
+
+            Console.WriteLine("Digite uma série de números (digite 0 para parar):");
+
+            while (true)
+            {
+                int numero = int.Parse(Console.ReadLine());
+
+                if (numero == 0)
+                {
+                    break;
+                }
+
+                if (numero > maior)
+                {
+                    maior = numero;
+                }
+
+                if (numero < menor)
+                {
+                    menor = numero;
+                }
+            }
+
+            Console.WriteLine("O maior número é: " + maior);
+
+            Console.WriteLine("O menor número é: " + menor);
+            return "";
+
+        }
+        public string graos()
+        {
+            double totalGraos = 0;
+            double graosQuadro = 1;
+
+            for (int i = 1; i <= 64; i++)
+            {
+                totalGraos += graosQuadro;
+                graosQuadro *= 2;
+            }
+
+            Console.WriteLine("Questão 43 - Número total de grãos de trigo: " + totalGraos);
+            return "";
+        }
+        public string altura_graus()
+        {
+            string encerrarPrograma = "N";
+
+            while (encerrarPrograma != "S")
+            {
+                Console.WriteLine("Questão 44 - Escolha uma opção:");
+                Console.WriteLine("1 - Conversão de Graus Celsius em Graus Fahrenheit");
+                Console.WriteLine("2 - Conversão de Graus Fahrenheit em Graus Celsius");
+                Console.WriteLine("3 - Peso ideal do homem");
+                Console.WriteLine("4 - Peso ideal da mulher");
+                Console.WriteLine("-1 - Encerrar");
+                Console.Write("Opção escolhida: ");
+                int opcao = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine();
+
+                switch (opcao)
+                {
+                    case 1:
+                        Console.Write("Digite a temperatura em Graus Celsius: ");
+                        double celsius = Convert.ToDouble(Console.ReadLine());
+                        double fahrenheit = (celsius * 9 / 5) + 32;
+                        Console.WriteLine("Temperatura em Graus Fahrenheit: " + fahrenheit);
+                        break;
+
+                    case 2:
+                        Console.Write("Digite a temperatura em Graus Fahrenheit: ");
+                        double fahrenheit2 = Convert.ToDouble(Console.ReadLine());
+                        double celsius2 = (fahrenheit2 - 32) * 5 / 9;
+                        Console.WriteLine("Temperatura em Graus Celsius: " + celsius2);
+                        break;
+
+                    case 3:
+                        Console.Write("Digite a altura em centímetros: ");
+                        double alturaHomem = Convert.ToDouble(Console.ReadLine());
+                        double pesoIdealHomem = (72.7 * alturaHomem / 100) - 58;
+                        Console.WriteLine("Peso ideal do homem: " + pesoIdealHomem);
+
+                        if (pesoIdealHomem < 0)
+                        {
+                            Console.WriteLine("O usuário está abaixo do peso ideal.");
+                        }
+                        else if (pesoIdealHomem > 0)
+                        {
+                            Console.WriteLine("O usuário está acima do peso ideal.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("O usuário está no peso ideal.");
+                        }
+
+                        break;
+
+                    case 4:
+                        Console.Write("Digite a altura em centímetros: ");
+                        double alturaMulher = Convert.ToDouble(Console.ReadLine());
+                        double pesoIdealMulher = (62.1 * alturaMulher / 100) - 44.7;
+
+                        Console.WriteLine("Peso ideal da mulher: " + pesoIdealMulher);
+
+                        if (pesoIdealMulher < 0)
+                        {
+                            Console.WriteLine("A usuária está abaixo do peso ideal.");
+                        }
+                        else if (pesoIdealMulher > 0)
+                        {
+                            Console.WriteLine("A usuária está acima do peso ideal.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("A usuária está no peso ideal.");
+                        }
+                        break;
+                    case -1:
+                        return ("encerrado...");
+                        break;
+                    
+                    default:
+                        Console.WriteLine("opcao inexistente");
+                        break;
+
+                }
+             
+            }
+            return "";
+        }
+
+    }
 }
+
