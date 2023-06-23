@@ -873,7 +873,7 @@ namespace Classes
         public string aluninhos()
         {
 
-         Alunos alunos = new Alunos();
+            Alunos alunos = new Alunos();
             ArrayList Alunor = new ArrayList();
 
             string stop = "";
@@ -882,17 +882,17 @@ namespace Classes
                 Console.WriteLine("Digite o nome do aluno: ");
                 alunos.Nome = Console.ReadLine();
                 Console.WriteLine("Digite a Matricula");
-                alunos.Matricula = int.Parse (Console.ReadLine());
+                alunos.Matricula = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Digite a nota; ");
-                    alunos.Nota = int.Parse (Console.ReadLine ());
+                alunos.Nota = int.Parse(Console.ReadLine());
 
                 alunos.Media = 60;
                 if (alunos.Nota >= alunos.Media) alunos.status = "Aprovado";
-                if (alunos.Nota  < alunos.Media) alunos.status = "Reprovado";
+                if (alunos.Nota < alunos.Media) alunos.status = "Reprovado";
                 Alunor.Add(alunos);
                 Console.WriteLine("Deseja finalizar? S/N");
-                stop = Console.ReadLine().ToUpper ();
+                stop = Console.ReadLine().ToUpper();
 
 
             } while (stop != "S");
@@ -902,7 +902,7 @@ namespace Classes
 
 
                 Console.WriteLine("Digite o numero da matricula do Aluno ou -1 para finalizar ");
-                 MatriculaNumero = int.Parse(Console.ReadLine());
+                MatriculaNumero = int.Parse(Console.ReadLine());
                 foreach (Alunos alunoss in Alunor)
                 {
 
@@ -915,11 +915,11 @@ namespace Classes
                        "Status: " + alunoss.status);
                     }
                 }
-            } while(MatriculaNumero != -1);
+            } while (MatriculaNumero != -1);
             return "";
         }
 
-        public string  menorNumero ()
+        public string menorNumero()
         {
             ArrayList numeros = new ArrayList();
             int stop = 0;
@@ -929,25 +929,251 @@ namespace Classes
                 stop = int.Parse(Console.ReadLine());
 
                 if (stop >= 0) numeros.Add(stop);
-                  
+
             } while (stop != -1);
 
-            
 
-          int[] NovoArr =  (int[])numeros.ToArray(typeof(int));
-  
-            Array.Sort(NovoArr);    
-            
-            
-            return $"O maior numero é:  {NovoArr[NovoArr.Length -1]}  \n O menor numero é: {NovoArr[0]} ";
-        } 
+
+            int[] NovoArr = (int[])numeros.ToArray(typeof(int));
+
+            Array.Sort(NovoArr);
+
+
+            return $"O maior numero é:  {NovoArr[NovoArr.Length - 1]}  \n O menor numero é: {NovoArr[0]} ";
+        }
+
+        public string _0a100()
+        {
+            ArrayList multiplosde10 = new ArrayList();
+
+            for (int i = 1; i <= 10; i++)
+            {
+                multiplosde10.Add(10 * i);
+
+            }
+            for (int i = 1; i <= 100; i++)
+            {
+                if (multiplosde10.Contains(i)) {
+                    Console.WriteLine(i + " é multiplo de 10");
+                }
+            }
+
+            return "";
+
+        }
+
+        public string _10valoresinteiorspositivos()
+        {
+
+
+            int[] Valores = new int[10];
+            int controle = 0;
+            do
+            {
+                Console.WriteLine("Digite um valor inteiro positivo");
+
+                Valores[controle] = int.Parse(Console.ReadLine());
+                controle++;
+
+            } while (controle != 10);
+
+
+            Array.Sort(Valores);
+
+            int result = 0;
+            do
+            {
+
+
+
+                Console.WriteLine($"---TABELA---" + "\n" +
+                "1 para maior valor" + "\n" +
+                "2 para o menor valor" + "\n" +
+                "3 para a média dos valores" + "\n" +
+                "4 para finalizar");
+                result = int.Parse(Console.ReadLine());
+                Console.Clear();
+
+                if (result == 1) Console.WriteLine("o maior valor é: " + Valores[Valores.Length - 1]);
+
+
+                if (result == 2) Console.WriteLine("O menor valor é: " + Valores[0]);
+
+                if (result == 3)
+                {
+
+                    int somaTot = 0;
+                    foreach (int valores in Valores)
+                    {
+                        somaTot += valores;
+                    }
+
+                    Console.WriteLine("A média dos valores é: " + (somaTot / 10));
+                }
+            } while (result != 4);
+            return "";
+
+        }
+
+        public string TabelaDeCalculos()
+        {
+            string opcao = "";
+            int[] valores = new int[2];
+            void agilizadora()
+            {
+
+                Console.WriteLine("Informe o valor A");
+                valores[0] = int.Parse(Console.ReadLine());
+                Console.WriteLine("Informe o valor B");
+                valores[1] = int.Parse(Console.ReadLine());
+            }
+            do
+            {
+                Console.WriteLine("Operações básicas:" + "\n" +
+                "---------------------" + "\n" +
+                "| Operação  " + "\n" +
+                "|-------------|---------------|" + "\n" +
+                "| 1 Adição     |" + "\n" +
+                "| 2 Subtração |" + "\n" +
+                "| 3 Multiplicação|" + "\n" +
+                "| 4 Divisão  |" + "\n" +
+                "---------------------");
+                int operacao = int.Parse(Console.ReadLine());
+
+
+
+                if (operacao == 1)
+                {
+
+                    agilizadora();
+                    Console.WriteLine("A soma é: " + (valores[0] + valores[1]));
+                }
+                if (operacao == 2)
+                {
+                    agilizadora();
+                    Console.WriteLine("A subtração é: " + (valores[0] - valores[1]));
+                }
+                if (operacao == 3)
+                {
+                    agilizadora();
+                    Console.WriteLine("A Multiplicação é: " + (valores[0] * valores[1]));
+                }
+                if (operacao == 4)
+                {
+                    agilizadora();
+                    Console.WriteLine("A divisão é: " + (valores[0] / valores[1]));
+                }
+
+                Console.WriteLine("Deseja finalizar? S/N");
+                opcao = Console.ReadLine().ToUpper();
+
+                Console.Clear();
+            } while (opcao != "S");
+            return "";
+
+
+        }
+        public string trabalho()
+        {
+            string encerrarPrograma = "N";
+
+            while (encerrarPrograma != "S")
+            {
+                Console.Write("Digite o código do operário: ");
+                int codigo = int.Parse(Console.ReadLine());
+
+                Console.Write("Digite o número de horas trabalhadas: ");
+                int horasTrabalhadas = int.Parse(Console.ReadLine());
+
+                double salarioPorHora = 10.00;
+                double salarioExcedente = 0.00;
+
+                if (horasTrabalhadas > 50)
+                {
+                    int horasExcedentes = horasTrabalhadas - 50;
+                    salarioExcedente = horasExcedentes * 20.00;
+                    horasTrabalhadas -= horasExcedentes;
+                }
+
+                double salarioTotal = horasTrabalhadas * salarioPorHora;
+
+                Console.WriteLine("Salário total: R$ " + salarioTotal.ToString("F2"));
+                Console.WriteLine("Salário excedente: R$ " + salarioExcedente.ToString("F2"));
+
+                Console.Write("Deseja encerrar o programa? (S/N): ");
+                encerrarPrograma = Console.ReadLine().ToUpper();
+                Console.WriteLine("\n");
+
+            }
+            return "";
+        }
+        public string numeropositivo()
+        {
+            string encerrarPrograma = "N";
+
+            while (encerrarPrograma != "S")
+            {
+                Console.Write("Digite um número inteiro: ");
+                int numero = Convert.ToInt32(Console.ReadLine());
+
+                if (numero % 2 == 0)
+                {
+                    Console.WriteLine("O número é par.");
+                }
+                else
+                {
+                    Console.WriteLine("O número é ímpar.");
+                }
+
+
+                if (numero >= 0)
+                {
+                    Console.WriteLine("O número é positivo.");
+                }
+                else
+                {
+                    Console.WriteLine("O número é negativo.");
+                }
+
+                Console.Write("Deseja encerrar o programa? (S/N): ");
+                encerrarPrograma = Console.ReadLine().ToUpper();
+                Console.WriteLine();
+            }
+            return "";
+        }
+
+        public string poluicao ()
+        {
+            string encerrarPrograma = "N";
+
+            while (encerrarPrograma != "S")
+            {
+                Console.Write("Digite o índice de poluição medido: ");
+                double indicePoluicao = double.Parse(Console.ReadLine());
+
+                if (indicePoluicao >= 0.5)
+                {
+                    Console.WriteLine("Todos os grupos devem paralisar suas atividades.");
+                }
+                else if (indicePoluicao >= 0.4)
+                {
+                    Console.WriteLine("Indústrias do 1o e 2o grupo devem suspender suas atividades.");
+                }
+                else if (indicePoluicao >= 0.3)
+                {
+                    Console.WriteLine("Indústrias do 1o grupo devem suspender suas atividades.");
+                }
+                else
+                {
+                    Console.WriteLine("Índice de poluição aceitável.");
+                }
+
+                Console.Write("Deseja encerrar o programa? (S/N): ");
+                encerrarPrograma = Console.ReadLine().ToUpper();
+                Console.WriteLine();
+            }
+            return "";
+        }
     }
+
 }
-
-
-
-
-
-
-
-
