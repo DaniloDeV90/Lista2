@@ -134,7 +134,7 @@ namespace lista3
                         lista3Classes.fatorial();
 
                         break;
-                        
+                        break;
                     case 27:
                         lista3Classes.impard100A200();
 
@@ -163,6 +163,30 @@ namespace lista3
                         break;
                     case 33:
                         Console.WriteLine(lista3Classes.menorNumero());
+
+                        break;
+                    case 34:
+                        Console.WriteLine(lista3Classes._0a100());
+
+                        break;
+                    case 35:
+                        Console.WriteLine(lista3Classes._10valoresinteiorspositivos());
+
+                        break;
+                    case 36:
+                        Console.WriteLine(lista3Classes.TabelaDeCalculos());
+
+                        break;
+                    case 37:
+                        Console.WriteLine(lista3Classes.trabalho());
+
+                        break;
+                    case 38:
+                        Console.WriteLine(lista3Classes.numeropositivo());
+
+                        break;
+                    case 39:
+                        Console.WriteLine(lista3Classes.poluicao());
 
                         break;
 
