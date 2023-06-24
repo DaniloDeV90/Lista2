@@ -1329,17 +1329,452 @@ namespace Classes
                     case -1:
                         return ("encerrado...");
                         break;
-                    
+
                     default:
                         Console.WriteLine("opcao inexistente");
                         break;
 
                 }
-             
+
+
             }
             return "";
         }
 
-    }
-}
+        public string vetores()
+        {
+            ArrayList numeros = new ArrayList();
+            int controle = 0;
+            do
+            {
+                Console.WriteLine("Digite um  numero inteiro ou -1 para finalizar");
+                controle = int.Parse(Console.ReadLine());
+                if (controle != -1) numeros.Add(controle);
+            } while (controle != -1);
 
+            int[] array = (int[])numeros.ToArray(typeof(int));
+
+            Array.Reverse(array);
+
+            foreach (int i in array)
+            {
+                Console.WriteLine(i + " ");
+
+            }
+
+            return "";
+        }
+
+        public string acabapeloAmorDeDeus()
+        {
+
+
+            Console.WriteLine("Digite o  numero de indices que voce deseja multiplicar");
+            int indices = int.Parse(Console.ReadLine());
+
+            int[] X = new int[indices];
+            int[] Y = new int[indices];
+
+
+            int soma = 0;
+            Random random = new Random();
+
+            for (int i = 0; i < indices; i++)
+            {
+                int randomNumberY = random.Next(0, 100);
+                int randomNumberX = random.Next(100, 200);
+
+
+                X[i] = i * randomNumberY;
+                Y[i] = i * randomNumberX;
+
+            }
+            for (int i = 0; i < indices; i++) soma += X[i] + Y[i];
+
+
+
+
+            Console.WriteLine(soma);
+
+            return "";
+        }
+
+        public string acabaPeloAmorDeDeus2()
+        {
+
+            int[] vetor = new int[10];
+            int x;
+
+
+            Console.WriteLine("Digite os 10 números inteiros do vetor:");
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write("Número {0}: ", i + 1);
+                vetor[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+
+            Console.Write("Digite o número X: ");
+            x = Convert.ToInt32(Console.ReadLine());
+
+            int maiores = 0, menores = 0, iguais = 0;
+
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (vetor[i] > x)
+                    maiores++;
+                else if (vetor[i] < x)
+                    menores++;
+                else
+                    iguais++;
+            }
+
+
+            Console.WriteLine("Quantidade de números maiores que X: {0}", maiores);
+            Console.WriteLine("Quantidade de números menores que X: {0}", menores);
+            Console.WriteLine("Quantidade de números iguais a X: {0}", iguais);
+            return "";
+        }
+
+
+        public string mofi3()
+        {
+            string[] nomes = new string[] {"Larrissa", "Clara", "Jennifer", "Maria Luiza", "Ana  Luiza", "Isabela", "Isabel", "Ana",
+            "Beatriz",
+            "Carolina",
+            "Daniela",
+            "Eduarda",
+            "Fernanda",
+            "Gabriela",
+            "Helena",
+            "Júlia",
+            "Mariana",
+            "Natália",
+            "Olívia",
+            "Patrícia",
+            "Rafaela",
+            "Sofia",
+            "Valentina",
+            "Yasmin",
+            "Zara"};
+
+            Random random = new Random();
+
+
+
+            for (int i = 0; i < 20; i++)
+            {
+                int indice = random.Next(0, 23);
+                string nomeAleatorio = nomes[indice];
+                int idadeAleatoria = random.Next(12, 20);
+                Console.WriteLine("Nome: " + nomeAleatorio + "\n" + "Idade: " + idadeAleatoria);
+                if (idadeAleatoria >= 18 && idadeAleatoria <= 20)
+                {
+                    Console.WriteLine("\n" + nomeAleatorio + " Pode concorrer.");
+                }
+            }
+            return "";
+        }
+
+        public string acaba()
+        {
+            int N;
+            int[] V1 = new int[50];
+            int[] V2 = new int[50];
+            int contador = 0;
+
+            Console.Write("Digite a quantidade de elementos (N) nos vetores (até 50): ");
+            N = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Digite os valores do vetor V1:");
+            LerVetor(V1, N);
+
+            Console.WriteLine("Digite os valores do vetor V2:");
+            LerVetor(V2, N);
+
+            for (int i = 0; i < N; i++)
+            {
+                if (V1[i] == V2[i])
+                    contador++;
+            }
+
+            Console.WriteLine("Quantidade de valores idênticos nas mesmas posições: " + contador);
+            return "";
+        }
+
+        void LerVetor(int[] vetor, int tamanho)
+        {
+            for (int i = 0; i < tamanho; i++)
+            {
+                Console.Write("Elemento {0}: ", i + 1);
+                vetor[i] = Convert.ToInt32(Console.ReadLine());
+            }
+        }
+
+        public string mofi34()
+        {
+            Random random = new Random();
+            int numeroSorteado = random.Next(101);
+            int tentativas = 0;
+            int tentativa;
+
+            Console.WriteLine("Jogo de Adivinhação - Adivinhe o número sorteado (0 a 100)");
+
+            do
+            {
+                Console.Write("Digite sua tentativa: ");
+                tentativa = Convert.ToInt32(Console.ReadLine());
+                tentativas++;
+
+                if (tentativa < numeroSorteado)
+                    Console.WriteLine("O número sorteado é maior que a sua tentativa.");
+                else if (tentativa > numeroSorteado)
+                    Console.WriteLine("O número sorteado é menor que a sua tentativa.");
+                else
+                    Console.WriteLine("Parabéns! Você acertou o número sorteado em {0} tentativas.", tentativas);
+            }
+            while (tentativa != numeroSorteado);
+            return "";
+        }
+        public string asd()
+        {
+            Console.Write("Digite a quantidade de alunos: ");
+            int n = int.Parse(Console.ReadLine());
+
+            double[] notas = new double[n];
+            int countAcimaSete = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Digite a nota do aluno {i + 1}: ");
+                notas[i] = double.Parse(Console.ReadLine());
+                if (notas[i] > 7.0)
+                {
+                    countAcimaSete++;
+                }
+            }
+
+            if (countAcimaSete == 0)
+            {
+                Console.WriteLine("Não há nenhum aluno com nota acima de 7.");
+            }
+            else
+            {
+                double media = CalcularMedia(notas);
+                Console.WriteLine($"A média das notas é: {media:F2}");
+                Console.WriteLine($"Alunos com nota acima de 7: {countAcimaSete}");
+            }
+            return "";
+        }
+
+        static double CalcularMedia(double[] notas)
+        {
+            double soma = 0;
+            foreach (double nota in notas)
+            {
+                soma += nota;
+            }
+            return soma / notas.Length;
+        }
+
+        public string wejhs()
+        {
+            int[] vetor = new int[100];
+            int tamanhoVetor = 0;
+
+
+            while (true)
+            {
+                Console.Write("Digite um número positivo (-1 para sair): ");
+                int numero = int.Parse(Console.ReadLine());
+
+                if (numero == -1)
+                    break;
+
+                vetor[tamanhoVetor] = numero;
+                tamanhoVetor++;
+            }
+
+
+            int count1 = 0, count3 = 0, count4 = 0;
+            for (int i = 0; i < tamanhoVetor; i++)
+            {
+                if (vetor[i] == 1)
+                    count1++;
+                else if (vetor[i] == 3)
+                    count3++;
+                else if (vetor[i] == 4)
+                    count4++;
+            }
+
+
+            Console.WriteLine($"Número 1: {count1} vezes");
+            Console.WriteLine($"Número 3: {count3} vezes");
+            Console.WriteLine($"Número 4: {count4} vezes");
+            return "";
+        }
+
+        public string exer51()
+        {
+            Console.Write("Digite a quantidade de voltas: ");
+            int n = int.Parse(Console.ReadLine());
+
+            double[] tempos = new double[n];
+
+
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write($"Digite o tempo da volta {i + 1}: ");
+                tempos[i] = double.Parse(Console.ReadLine());
+            }
+
+
+            double melhorTempo = tempos[0];
+            int voltaMelhorTempo = 1;
+
+            for (int i = 1; i < n; i++)
+            {
+                if (tempos[i] < melhorTempo)
+                {
+                    melhorTempo = tempos[i];
+                    voltaMelhorTempo = i + 1;
+                }
+            }
+
+            double somaTempos = 0;
+            for (int i = 0; i < n; i++)
+            {
+                somaTempos += tempos[i];
+            }
+            double tempoMedio = somaTempos / n;
+            Console.WriteLine($"Melhor tempo: {melhorTempo:F2}");
+            Console.WriteLine($"Volta do melhor tempo: {voltaMelhorTempo}");
+            Console.WriteLine($"Tempo médio das voltas: {tempoMedio:F2}");
+
+            return "";
+
+
+        }
+
+        public string exer52()
+        {
+            int[] A = { 1, 3, 5, 7, 9 };
+            int[] B = { 2, 4, 5, 7, 8, 9, 10, 11 };
+
+            Console.Write("Elementos comuns aos dois vetores: ");
+            foreach (int elementoA in A)
+            {
+                foreach (int elementoB in B)
+                {
+                    if (elementoA == elementoB)
+                    {
+                        Console.Write(elementoA + " ");
+                        break;
+                    }
+                }
+            }
+
+            return "";
+
+        }
+
+
+
+        public string exer53()
+        {
+
+            Console.WriteLine("Digite uma frase");
+            string frase = Console.ReadLine();
+            if (frase.Length > 50) return "No máximo 50 caracteres.";
+
+            int tamanhoDaFrase = frase.Length;
+           
+            List<char> nomeCortado = new List<char> ();
+
+          for (int i = 0; i < tamanhoDaFrase; i ++)
+            {
+                nomeCortado.Add  (frase[i]);
+            }
+            int espacos = 0;
+
+            foreach (char valores in nomeCortado)
+            {
+                Console.Write(valores);
+                if (valores.ToString() == " ") espacos++;
+
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("\n" + "Espaços vazios: " + espacos + "\n");
+            nomeCortado.RemoveAll(x => x == ' ');
+            foreach (char valores in nomeCortado)
+            {
+
+                Console.Write(valores);
+
+            }
+            return "";
+        }
+
+        public string exer54 ()
+        {
+            int[] vetor = new int[50];
+
+          
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                Console.Write("Digite o valor para a posição " + (i + 1) + ": ");
+                vetor[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            int quantidadePares = 0;
+            int quantidadeMultiplosDe5 = 0;
+
+
+            for (int i = 0; i < vetor.Length; i++)
+            {
+                if (vetor[i] % 2 == 0)
+                {
+                    quantidadePares++;
+                }
+
+                if (vetor[i] % 5 == 0)
+                {
+                    quantidadeMultiplosDe5++;
+                }
+            }
+
+            Console.WriteLine("Quantidade de números pares: " + quantidadePares);
+            Console.WriteLine("Quantidade de múltiplos de 5: " + quantidadeMultiplosDe5);
+            return "";
+        }
+        public string exer55 ()
+        {
+            
+                Console.Write("Digite uma frase: ");
+                string frase = Console.ReadLine();
+
+                Console.WriteLine("Vogais encontradas na frase:");
+
+                foreach (char c in frase)
+                {
+                    if (EhVogal(c))
+                    {
+                        Console.WriteLine(c);
+                    }
+                }
+            
+
+            static bool EhVogal(char c)
+            {
+                char[] vogais = { 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' };
+
+                return Array.IndexOf(vogais, c) >= 0;
+            }
+            return "";
+        }
+    }
+
+    
+
+}
