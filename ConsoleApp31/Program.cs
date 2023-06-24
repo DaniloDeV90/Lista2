@@ -205,7 +205,58 @@ namespace lista3
                         Console.WriteLine(lista3Classes.altura_graus());
 
                         break;
+                    case 44:
+                        Console.WriteLine(lista3Classes.vetores());
 
+                        break;
+                    case 45:
+                        Console.WriteLine(lista3Classes.acabapeloAmorDeDeus());
+
+                        break;
+                    case 46:
+                        Console.WriteLine(lista3Classes.acabaPeloAmorDeDeus2());
+
+                        break;
+                    case 47:
+                        Console.WriteLine(lista3Classes.mofi3());
+
+                        break;
+                    case 48:
+                        Console.WriteLine(lista3Classes.acaba());
+
+                        break;
+                    case 49:
+                        Console.WriteLine(lista3Classes.mofi34());
+
+                        break;
+                    case 50:
+                        Console.WriteLine(lista3Classes.asd());
+
+                        break;
+                    case 51:
+                        Console.WriteLine(lista3Classes.wejhs());
+
+                        break;
+                    case 52:
+                        Console.WriteLine(lista3Classes.exer51());
+
+                        break;
+                    case 53:
+                        Console.WriteLine(lista3Classes.exer52());
+
+                        break;
+                    case 54:
+                        Console.WriteLine(lista3Classes.exer53());
+
+                        break;
+                    case 55:
+                        Console.WriteLine(lista3Classes.exer54());
+
+                        break;
+                    case 56:
+                        Console.WriteLine(lista3Classes.exer55());
+
+                        break;
                 }
             } while (opcao != -1);
         }
